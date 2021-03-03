@@ -1,4 +1,5 @@
-name: Awesome Research Group
+name: Waitt Advanced Biophotonics Core
+institute: Salk Institute for Biologicial Studies
 url: http://awesome.example.edu
 
 exclude: [bibble, README.md, Makefile, screenshot.png]
@@ -51,3 +52,7 @@ navigation:
     link: /publications.html
   - title: Code
     link: /code.html
+  - title: Light Microscopy Resources
+    link: /LMR.html
+  - title: Light Microscopy Resources2
+    link: /LMR2.html
