@@ -1,7 +1,7 @@
 ---
 layout: card
 name: Local Shape Descriptors for Neuron Segmentation
-image: pssr.jpg
+image: lsd.jpg
 image_href: https://www.biorxiv.org/content/10.1101/2021.01.18.427039v1.full
 header: Local Shape Descriptors for Neuron Segmentation
 tags:
