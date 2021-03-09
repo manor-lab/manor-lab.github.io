@@ -8,6 +8,7 @@ tags:
   - manual
   - slidescanner
   - tutorial
+  - microscopy
 item_sort: 6
 ---
 Manual for the Olympus VS120 slide scanner. Worthy reference for acquiring fluorescence and bright field images using this system.
