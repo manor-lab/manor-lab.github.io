@@ -3,11 +3,11 @@ layout: default
 title: Tutorials
 subtitle: some microscopy and image processing tutorials
 logo: logo.gif
-layout: default
 ---
 {% include navheader.html %}
-    <div class="wrapper" style="align-content: center;">
-      <h2>Workflow</h2>
+
+<div class="wrapper" style="align-content: center;">
+  <h2>Workflow</h2>
       <div class="feature">        
         <div class="feature__item">
           <h3 class="section__title">Sample preparation</h3>
@@ -34,8 +34,8 @@ layout: default
           <p>Bokeh and 3js facilitate this interactive geometry PCA plot and STL viewer.  A work in progress.</p>
         </a>
       </div>
-      </div>
+</div>
 
-      <div style="height:100px;"></div>
-  </body>
+<div style="height:100px;"></div>
+</body>
 </html>
