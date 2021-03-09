@@ -1,75 +1,79 @@
 ---
 layout: default
-title: Home
-notitle: true
-
-# groups of columns of {roles: list, width: num, image: bool}
-role-tables:
-- - roles: [faculty, postdoc, staff]
-    width: 4
-    image: true
-  - roles: [grad]
-    width: 8
-    image: true
-- - roles: [collab, ugrad, ugrad-alum]
-    width: 5
-    image: false
-  - roles: [alum]
-    width: 7
-    image: false
-
+title: Manor Lab
+subtitle: Microscopes and such
+logo: logo.gif
 ---
 
-<div class="jumbotron">
-    <p>
-        The <b>Awesome Research Group</b> at <b>Example U</b> does all sorts of
-        research. Here is a place where we tell you exactly what that is!
-    </p>
+{% include navheader.html %}
+
+
+<div class="wrapper">
+ <h3>Welcome to the lab page of Uri Manor. </h3>
+ <p>We use microscopes to study the cochlea, mitochondria, actin, organelle contacts, and more. </p>
 </div>
 
-<section>
-    <h2>News</h2>
-    <ul class="news list-unstyled">
-        {% for post in site.posts limit: site.front_page_news %}
-            {% include news-item.html item=post %}
-        {% endfor %}
-    </ul>
-    {% assign numposts = site.posts | size %}
-    {% if numposts >= 1 %}
-        <p>
-            <span class="fa fa-fw fa-history"></span>
-            <a href="{{ site.base }}/blog.html">Older posts&hellip;</a>
-        </p>
-    {% endif %}
-</section>
-
-<section>
-    <h2>Research</h2>
-    <div class="card-columns">
-        {% comment %}
-        Sort the projects by date, putting those without dates last
-        {% endcomment %}
-        {% assign projects_by_date = site.projects | sort: 'last-updated', 'first' %}
-        {% assign projects_by_date = projects_by_date | reverse %}
-        {% for p in projects_by_date %}
-            {% if p.status != "inactive" %}
-                {% include project-card.html project=p %}
-            {% endif %}
-        {% endfor %}
+<nav id="filter-bar" class="navbar navbar-filters">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#filters" aria-expanded="false">
+        <span class="sr-only">Toggle filters</span>
+        <span class="pull-left">
+          <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </span>
+        <span class="pull-right">
+          Filter
+        </span>
+      </button>
+      <span class="navbar-brand" href="#">Filter By:</span>
     </div>
-</section>
 
-<div id="people">
-    <h2>People</h2>
-    {% for role-table in page.role-tables %}
-        <section class="people row justify-content-between">
-            {% for role-column in role-table %}
-                <div class="col-md-{{ role-column.width }}">
-                    {% for role in role-column.roles %}
-                        {% include role-people.html role=role image=role-column.image %}
-                    {% endfor %}
-                </div>
-            {% endfor %}
-        </section>
-    {% endfor %}
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div id="filters" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a class="js-filter current" data-filter="*">All</a></li>
+        <li><a class="js-filter" data-filter=".microscopy">Microscopy</a></li>
+        <li><a class="js-filter" data-filter=".tutorials">Tutorials</a></li>
+        <li><a class="js-filter" data-filter=".gallery">Gallery</a></li>
+      </ul>
+      <ul class="nav pull-right navbar-nav resume">
+        <li>
+          <!--<a href="{{ site.baseurl }}/resume">Resume</a>-->
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="filter-focus"></div>
+
+<div id="loading" class="text-center">
+  <p>Loading...</p>
 </div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <div id="allcards">
+
+        <!-- Intro Cards -->
+        {% include static-cards/about.html %}
+
+        <!-- Main Cards -->
+        {% assign cards = site.cards | sort: 'item_sort' %}
+        {% for card in cards %}
+          {% include card-template.html %}
+        {% endfor %}
+
+      </div>
+
+      <div class="landing-cta">
+        <!-- <p>Looking for a traditional resume? <a href="/resume">Here you go</a></p> -->
+      </div>
+    </div>
+  </div>
+</div>
+
